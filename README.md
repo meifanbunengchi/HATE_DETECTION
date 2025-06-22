@@ -9,16 +9,29 @@ Target | Argument | Group | Hateful
 
 📂 项目结构
 .
+
 ├── 2.py                     # 将 JSON 格式转换为按行 JSONL 格式
+
 ├── data_preprocess.py       # 数据处理与 BIO 标签生成
+
 ├── eval.py                  # 模型评估（硬匹配 & 软匹配）
+
 ├── train.py                 # 模型训练脚本（基于 Trainer API）
+
 ├── labels.py                # BIO 标签映射 + 设备信息
+
 ├── predict_test.py          # 单独推理入口，支持经验规则增强结果
+
 ├── data/
-│   ├── train_fixed.json     # JSONL格式训练数据
-│   └── dev_fixed.json       # JSONL格式验证数据
+
+│  
+ ├── train_fixed.json     # JSONL格式训练数据
+
+│   
+└── dev_fixed.json       # JSONL格式验证数据
+
 ├── test1.json               # 测试用例（数组形式）
+
 └── demomin.txt              # 推理结果输出
 
 1️⃣ 安装依赖
@@ -27,11 +40,11 @@ pip install torch transformers datasets scikit-learn
 2️⃣ 数据预处理
 原始 JSON → JSONL 转换（逐行格式）
 python 2.py
-# 输出文件: data/dev_fixed.json
+输出文件: data/dev_fixed.json
 
 3️⃣ 训练模型（NER）
 python train.py
-# 使用 roberta-wwm 模型训练并自动保存最优模型到 ./checkpoints
+使用 roberta-wwm 模型训练并自动保存最优模型到 ./checkpoints
 
 4️⃣ 验证模型效果
 python eval.py
@@ -104,7 +117,7 @@ GENDER_TRIGGERS：女拳、母猪、男的都...
 你可以将 train.py 和 predict_test.py 中的预训练模型路径修改为：
 
 MODEL_PATH = "bert-base-chinese"
-# 或：www模型路径
+或：www模型路径
 
 支持以下中文模型：
 
